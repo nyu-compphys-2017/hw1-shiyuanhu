@@ -1,6 +1,6 @@
 from __future__ import division
 from numpy import empty
-from pylab import imshow,gray,show,hot,jet,colorbar
+from pylab import imshow,gray,show,hot,jet,colorbar,savefig
 from math import sqrt
 ##
 side = 4
@@ -19,12 +19,12 @@ for m in range(points+1):
         for k in range(step):
             z = z**2+c
             if abs(z)>2:
-                s[m][n] = k      
+                s[n][m] = k      
                 break
         else:
-            s[m][n] = k+1
+            s[n][m] = k+1
 ###
 imshow(s,origin="lower",extent=[-side/2,side/2,-side/2,side/2])
 jet()
 colorbar()
-show()
+savefig('fig2.pdf')
